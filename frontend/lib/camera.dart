@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/main.dart';
 
 void main() {
   runApp(const CameraScreen());
@@ -9,20 +10,36 @@ class CameraScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
-      ),
-      home: Scaffold(
-        body: ListView(children: [
-          CameraRecognition(),
-        ]),
+    return const MaterialApp(
+      home: DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          body: TabBarView(
+            children: [
+              MusicList(musiclist: '홈'),
+              CameraRecognition(camera: '카메라 인식'),
+              // CameraRecognition(tabTitle: '악보 인식'),
+              // CameraRecognition(tabTitle: '음원 인식'),
+            ],
+          ),
+          bottomNavigationBar: TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.home), text: '홈'),
+              Tab(icon: Icon(Icons.camera), text: '카메라 인식'),
+              Tab(icon: Icon(Icons.music_note), text: '악보 인식'),
+              Tab(icon: Icon(Icons.headphones), text: '음원 인식'),
+            ],
+          ),
+        ),
       ),
     );
   }
 }
 
 class CameraRecognition extends StatelessWidget {
+  final String camera;
+  const CameraRecognition({Key? key, required this.camera}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(

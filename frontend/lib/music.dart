@@ -1,36 +1,16 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MusicScreen());
+  runApp(AudioRecognitionScreen());
 }
 
-class MusicScreen extends StatelessWidget {
-  const MusicScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
-      ),
-      home: Scaffold(
-        body: ListView(children: [
-          const MusicRecognition(),
-        ]),
-      ),
-    );
-  }
-}
-
-class MusicRecognition extends StatelessWidget {
-  const MusicRecognition({super.key});
-
+class AudioRecognitionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          width: 360,
+          width: double.infinity,
           height: 800,
           clipBehavior: Clip.antiAlias,
           decoration: const BoxDecoration(
@@ -74,65 +54,6 @@ class MusicRecognition extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const Positioned(
-                        left: 42,
-                        top: 48,
-                        child: Text(
-                          '홈',
-                          style: TextStyle(
-                            color: Color(0xFFC6AFFF),
-                            fontSize: 6,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w700,
-                            height: 0,
-                          ),
-                        ),
-                      ),
-                      const Positioned(
-                        left: 121,
-                        top: 48,
-                        child: Text(
-                          '카메라 인식',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Color(0xFFC6AFFF),
-                            fontSize: 6,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w700,
-                            height: 0,
-                          ),
-                        ),
-                      ),
-                      const Positioned(
-                        left: 213,
-                        top: 48,
-                        child: Text(
-                          '악보 인식',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Color(0xFFC6AFFF),
-                            fontSize: 6,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w700,
-                            height: 0,
-                          ),
-                        ),
-                      ),
-                      const Positioned(
-                        left: 303,
-                        top: 48,
-                        child: Text(
-                          '음원 인식',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Color(0xFFC6AFFF),
-                            fontSize: 6,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w700,
-                            height: 0,
-                          ),
-                        ),
-                      ),
                       Positioned(
                         left: 301,
                         top: 20,
@@ -162,16 +83,19 @@ class MusicRecognition extends StatelessWidget {
                         child: SizedBox(
                           width: 180,
                           height: 40,
-                          child: Text(
-                            'T  BO',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 40,
-                              fontFamily: 'Righteous',
-                              fontWeight: FontWeight.w400,
-                              height: 0,
-                              letterSpacing: 10,
+                          child: Center(
+                            // Center 추가
+                            child: Text(
+                              'T  BO',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 40,
+                                fontFamily: 'Righteous',
+                                fontWeight: FontWeight.w400,
+                                height: 0,
+                                letterSpacing: 10,
+                              ),
                             ),
                           ),
                         ),
@@ -184,7 +108,7 @@ class MusicRecognition extends StatelessWidget {
                           height: 40,
                           padding: const EdgeInsets.only(left: 2.78),
                           clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(), // BoxDecoration 수정
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -193,7 +117,7 @@ class MusicRecognition extends StatelessWidget {
                               Container(
                                 width: 40,
                                 height: 40,
-                                child: const Stack(children: []),
+                                child: Stack(children: []),
                               ),
                             ],
                           ),
@@ -206,10 +130,12 @@ class MusicRecognition extends StatelessWidget {
                           width: 14,
                           height: 12,
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 2.92, vertical: 1),
+                            horizontal: 2.92,
+                            vertical: 1,
+                          ),
                           clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(),
-                          child: const Row(
+                          decoration: BoxDecoration(), // BoxDecoration 수정
+                          child: Row(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,

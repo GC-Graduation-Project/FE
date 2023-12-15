@@ -1,12 +1,32 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'result.dart';
 
 void main() {
-  runApp(const SheetRecognitionScreen());
+  runApp(SheetRecognitionScreen());
 }
 
-class SheetRecognitionScreen extends StatelessWidget {
-  const SheetRecognitionScreen({super.key});
+class SheetRecognitionScreen extends StatefulWidget {
+  const SheetRecognitionScreen({Key? key}) : super(key: key);
+
+  @override
+  _SheetRecognitionScreenState createState() => _SheetRecognitionScreenState();
+}
+
+class _SheetRecognitionScreenState extends State<SheetRecognitionScreen> {
+  XFile? _galleryImage; // Variable to store the image
+  final ImagePicker picker = ImagePicker(); // Initialize ImagePicker
+
+  // Function to get the image
+  Future<void> getImage(ImageSource imageSource) async {
+    final XFile? pickedFile = await picker.pickImage(source: imageSource);
+    if (pickedFile != null) {
+      setState(() {
+        _galleryImage = pickedFile; // Store the picked image in _image
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +37,7 @@ class SheetRecognitionScreen extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            height: 655,
+            height: 800,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment(0.00, -1.00),
@@ -62,6 +82,9 @@ class SheetRecognitionScreen extends StatelessWidget {
                         .withOpacity(0.5),
                     borderRadius: BorderRadius.circular(50.0),
                   ),
+                  child: _galleryImage != null
+                      ? Image.file(File(_galleryImage!.path))
+                      : Container(),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -72,7 +95,7 @@ class SheetRecognitionScreen extends StatelessWidget {
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
-                          // 버튼을 눌렀을 때 사진 촬영
+                          getImage(ImageSource.gallery);
                         },
                         style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),

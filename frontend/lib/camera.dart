@@ -1,11 +1,33 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'result.dart';
 
 void main() {
-  runApp(const CameraRecognitionScreen());
+  runApp(CameraRecognitionScreen());
 }
 
-class CameraRecognitionScreen extends StatelessWidget {
-  const CameraRecognitionScreen({super.key});
+class CameraRecognitionScreen extends StatefulWidget {
+  const CameraRecognitionScreen({Key? key}) : super(key: key);
+
+  @override
+  _CameraRecognitionScreenState createState() =>
+      _CameraRecognitionScreenState();
+}
+
+class _CameraRecognitionScreenState extends State<CameraRecognitionScreen> {
+  XFile? _cameraImage; // Variable to store the image
+  final ImagePicker picker = ImagePicker(); // Initialize ImagePicker
+
+  // Function to get the image
+  Future<void> getImage(ImageSource imageSource) async {
+    final XFile? pickedFile = await picker.pickImage(source: imageSource);
+    if (pickedFile != null) {
+      setState(() {
+        _cameraImage = pickedFile; // Store the picked image in _image
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +38,7 @@ class CameraRecognitionScreen extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            height: 655,
+            height: 800,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment(0.00, -1.00),
@@ -61,6 +83,9 @@ class CameraRecognitionScreen extends StatelessWidget {
                         .withOpacity(0.5),
                     borderRadius: BorderRadius.circular(50.0),
                   ),
+                  child: _cameraImage != null
+                      ? Image.file(File(_cameraImage!.path))
+                      : Container(),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -71,7 +96,7 @@ class CameraRecognitionScreen extends StatelessWidget {
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
-                          // 버튼을 눌렀을 때 사진 촬영
+                          getImage(ImageSource.camera);
                         },
                         style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),
@@ -94,7 +119,11 @@ class CameraRecognitionScreen extends StatelessWidget {
                     IconButton(
                       icon: const Icon(Icons.arrow_forward),
                       onPressed: () {
-                        // 화살표 아이콘을 눌렀을 때 카메라
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ResultScreen()),
+                        );
                       },
                     ),
                   ],
@@ -102,7 +131,7 @@ class CameraRecognitionScreen extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.only(top: 10),
                   child: const Text(
-                    '재촬영',
+                    '재선택',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xFFC6AFFF),

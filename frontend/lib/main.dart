@@ -55,11 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
             label: '카메라',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.music_note),
+            icon: Icon(Icons.queue_music_outlined),
             label: '악보',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.music_video),
+            icon: Icon(Icons.music_note),
             label: '음원',
           ),
         ],

@@ -130,7 +130,7 @@ class _SheetRecognitionScreenState extends State<SheetRecognitionScreen> {
                 Container(
                   margin: const EdgeInsets.only(top: 10),
                   child: const Text(
-                    '재선택',
+                    '이미지 선택',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xFFC6AFFF),

@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const ResultScreen());
-}
+import 'dart:convert';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key});
+  final String imageUrl;
+
+  const ResultScreen({
+    super.key,
+    required this.imageUrl,
+  });
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    // JSON 파싱
+    Map<String, dynamic> jsonMap = json.decode(imageUrl);
+
+    // "base64Image" 키에 대한 값 추출
+    String base64Image = jsonMap['base64Image'];
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -61,6 +69,17 @@ class ResultScreen extends StatelessWidget {
                         .withOpacity(0.5),
                     borderRadius: BorderRadius.circular(100.0),
                   ),
+                  child: base64Image.isNotEmpty
+                      ? Center(
+                          child: Image.memory(
+                            // Convert Base64 string to Uint8List
+                            base64.decode(base64Image),
+                            width: screenWidth * 0.9,
+                            height: screenHeight * 0.6,
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      : Container(),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

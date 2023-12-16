@@ -16,7 +16,7 @@ class ResultScreen extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            height: screenHeight,
+            height: 800,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment(0.00, -1.00),
@@ -34,7 +34,7 @@ class ResultScreen extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(top: 20),
+                  margin: EdgeInsets.only(top: screenHeight * 0.06),
                   child: const Center(
                     child: SizedBox(
                       width: 180,
@@ -53,27 +53,37 @@ class ResultScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 36, bottom: 40),
+                  margin: const EdgeInsets.only(top: 30, bottom: 30),
                   width: screenWidth * 0.9,
-                  height: screenHeight * 0.6,
+                  height: screenHeight * 0.55,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 255, 255, 255)
                         .withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(100.0),
+                    borderRadius: BorderRadius.circular(50.0),
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    const SizedBox(
+                      width: 60,
+                    ),
                     Center(
                       child: ElevatedButton(
-                        onPressed: () {
-                          // 버튼을 눌렀을 때 사진 촬영
-                        },
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),
                           backgroundColor: Colors.white,
-                          padding: const EdgeInsets.all(30),
+                          padding: const EdgeInsets.all(25),
                           side: const BorderSide(
                             width: 5,
                             color: Color.fromARGB(255, 198, 166, 248),
@@ -84,6 +94,9 @@ class ResultScreen extends StatelessWidget {
                           color: Color.fromARGB(255, 198, 166, 248),
                         ),
                       ),
+                    ),
+                    const SizedBox(
+                      width: 120,
                     ),
                   ],
                 ),

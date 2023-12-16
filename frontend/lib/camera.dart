@@ -33,6 +33,7 @@ class _CameraRecognitionScreenState extends State<CameraRecognitionScreen> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -56,7 +57,7 @@ class _CameraRecognitionScreenState extends State<CameraRecognitionScreen> {
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(top: 30),
+                  margin: EdgeInsets.only(top: screenHeight * 0.06),
                   child: const Center(
                     child: SizedBox(
                       width: 180,

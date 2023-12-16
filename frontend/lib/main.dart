@@ -5,19 +5,23 @@ import 'music.dart';
 import 'picture.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: HomeScreen(),
     );
   }
 }
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -25,11 +29,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
-    MainScreen(),
-    CameraRecognitionScreen(),
-    SheetRecognitionScreen(),
+    const MainScreen(),
+    const CameraRecognitionScreen(),
+    const SheetRecognitionScreen(),
     AudioRecognitionScreen(),
-    ResultScreen(),
+    const ResultScreen(imageUrl: ""),
   ];
 
   @override
@@ -43,8 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
             _currentIndex = index;
           });
         },
-        selectedItemColor: Color.fromARGB(255, 167, 36, 255),
-        unselectedItemColor: Color.fromARGB(255, 186, 142, 216),
+        selectedItemColor: const Color.fromARGB(255, 167, 36, 255),
+        unselectedItemColor: const Color.fromARGB(255, 186, 142, 216),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),

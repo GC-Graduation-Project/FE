@@ -4,7 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'result.dart';
 
 void main() {
-  runApp(CameraRecognitionScreen());
+  runApp(const CameraRecognitionScreen());
 }
 
 class CameraRecognitionScreen extends StatefulWidget {
@@ -123,7 +123,9 @@ class _CameraRecognitionScreenState extends State<CameraRecognitionScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ResultScreen()),
+                              builder: (context) => const ResultScreen(
+                                    imageUrl: '',
+                                  )),
                         );
                       },
                     ),

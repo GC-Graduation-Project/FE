@@ -44,6 +44,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "dio",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/dio-5.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "fake_async",
       "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/fake_async-1.3.1",
       "packageUri": "lib/",
@@ -272,7 +278,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2023-12-16T08:15:13.744370Z",
+  "generated": "2023-12-16T21:05:50.978845Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }

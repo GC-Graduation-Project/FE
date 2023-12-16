@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
@@ -30,27 +31,18 @@ class _SheetRecognitionScreenState extends State<SheetRecognitionScreen> {
   }
 
   Future<void> uploadImage(File imageFile) async {
-    // Replace the URL with your server endpoint
-    //final url = Uri.parse('http://localhost:8000/image/image');
-    final url = Uri.parse('http://192.168.45.76:8000/tab/test');
-
-    var request = http.MultipartRequest('POST', url);
-    request.files
-        .add(await http.MultipartFile.fromPath('image', imageFile.path));
-
-    final response = await http.post(url, body: request.fields);
-    final String responseBody = response.body;
-
-    if (response.statusCode == 200) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ResultScreen(imageUrl: responseBody),
-        ),
-      );
-    } else {
-      throw Error();
-    }
+    var dio = Dio();
+    dio.options.contentType = 'multipart/form-data';
+    var formData = FormData.fromMap(
+        {'file': await MultipartFile.fromFile(imageFile.path)});
+    var response =
+        await dio.post('http://localhost:8000/image/image', data: formData);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResultScreen(imageUrl: response.data),
+      ),
+    );
   }
 
   @override

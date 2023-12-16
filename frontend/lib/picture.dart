@@ -55,7 +55,7 @@ class _SheetRecognitionScreenState extends State<SheetRecognitionScreen> {
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(top: 30),
+                  margin: EdgeInsets.only(top: screenHeight * 0.06),
                   child: const Center(
                     child: SizedBox(
                       width: 180,

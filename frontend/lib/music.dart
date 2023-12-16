@@ -33,7 +33,7 @@ class AudioRecognitionScreen extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(top: 30),
+                  margin: EdgeInsets.only(top: screenHeight * 0.06),
                   child: const Center(
                     child: SizedBox(
                       width: 180,
@@ -171,7 +171,12 @@ class AudioRecognitionScreen extends StatelessWidget {
                     ),
                   ),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ResultScreen()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.white,
                       padding: const EdgeInsets.all(10),

@@ -174,7 +174,10 @@ class AudioRecognitionScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ResultScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const ResultScreen(
+                                  imageUrl: '',
+                                )),
                       );
                     },
                     style: ElevatedButton.styleFrom(

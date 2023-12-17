@@ -3,6 +3,7 @@ import 'result.dart';
 import 'camera.dart';
 import 'music.dart';
 import 'picture.dart';
+import 'splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
@@ -149,54 +150,65 @@ class MainScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                width: double.infinity,
-                height: 80,
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.9),
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Color(0x774E2B6C),
-                      blurRadius: 10,
-                      offset: Offset(0, 4),
-                      spreadRadius: 2,
-                    )
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 32,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        border: Border(
-                          right: BorderSide(
-                            width: 2,
-                            color: Color(0xFFB59CFF),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ResultScreen(
+                              imageUrl: "",
+                            )),
+                  );
+                },
+                child: Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                  width: double.infinity,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.9),
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color(0x774E2B6C),
+                        blurRadius: 10,
+                        offset: Offset(0, 4),
+                        spreadRadius: 2,
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 32,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          border: Border(
+                            right: BorderSide(
+                              width: 2,
+                              color: Color(0xFFB59CFF),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 240,
-                      height: 40,
-                      child: Center(
-                        child: Text(
-                          'first music.mp3',
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 77, 55, 87),
-                            fontSize: 18,
-                            fontFamily: 'Righteous',
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: 1,
+                      const SizedBox(
+                        width: 240,
+                        height: 40,
+                        child: Center(
+                          child: Text(
+                            'first music.png',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 77, 55, 87),
+                              fontSize: 18,
+                              fontFamily: 'Righteous',
+                              fontWeight: FontWeight.w400,
+                              letterSpacing: 1,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Container(

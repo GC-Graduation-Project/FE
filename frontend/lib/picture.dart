@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
@@ -30,6 +31,7 @@ class _SheetRecognitionScreenState extends State<SheetRecognitionScreen> {
   }
 
   Future<void> uploadImage(File imageFile) async {
+
     // Replace the URL with your server endpoint
     //final url = Uri.parse('http://localhost:8000/image/image');
     //final url = Uri.parse('http://192.168.45.76:8000/tab/test');
@@ -52,6 +54,7 @@ class _SheetRecognitionScreenState extends State<SheetRecognitionScreen> {
     } else {
       throw Error();
     }
+
   }
 
   @override

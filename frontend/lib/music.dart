@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'result.dart';
 
 void main() {
-  runApp(AudioRecognitionScreen());
+  runApp(const AudioRecognitionScreen());
 }
 
 class AudioRecognitionScreen extends StatelessWidget {
+  const AudioRecognitionScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -71,19 +73,19 @@ class AudioRecognitionScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12.0),
                         border: Border.all(
                           width: 3,
-                          color: Color.fromARGB(255, 198, 166, 248),
+                          color: const Color.fromARGB(255, 198, 166, 248),
                         ),
                       ),
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.white,
+                          backgroundColor: Colors.white,
                           padding: const EdgeInsets.all(10),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'guitar',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -105,19 +107,19 @@ class AudioRecognitionScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12.0),
                         border: Border.all(
                           width: 3,
-                          color: Color.fromARGB(255, 198, 166, 248),
+                          color: const Color.fromARGB(255, 198, 166, 248),
                         ),
                       ),
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.white,
+                          backgroundColor: Colors.white,
                           padding: const EdgeInsets.all(10),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'bass',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -135,19 +137,19 @@ class AudioRecognitionScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12.0),
                         border: Border.all(
                           width: 3,
-                          color: Color.fromARGB(255, 198, 166, 248),
+                          color: const Color.fromARGB(255, 198, 166, 248),
                         ),
                       ),
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.white,
+                          backgroundColor: Colors.white,
                           padding: const EdgeInsets.all(10),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'ukulele',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -168,7 +170,7 @@ class AudioRecognitionScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12.0),
                     border: Border.all(
                       width: 3,
-                      color: Color.fromARGB(255, 198, 166, 248),
+                      color: const Color.fromARGB(255, 198, 166, 248),
                     ),
                   ),
                   child: ElevatedButton(
@@ -177,18 +179,20 @@ class AudioRecognitionScreen extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const ResultScreen(
-                                  imageUrl: '',
+
+                                  imageUrl: "",
+
                                 )),
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
+                      backgroundColor: Colors.white,
                       padding: const EdgeInsets.all(10),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Convert Into TABO',
                       textAlign: TextAlign.center,
                       style: TextStyle(

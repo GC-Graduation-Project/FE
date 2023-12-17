@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const MainScreen(),
     const CameraRecognitionScreen(),
     const SheetRecognitionScreen(),
-    AudioRecognitionScreen(),
+    const AudioRecognitionScreen(),
     const ResultScreen(imageUrl: ""),
   ];
 

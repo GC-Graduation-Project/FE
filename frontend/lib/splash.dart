@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'main.dart';
 
 void main() {
   runApp(const LoginScreen());
@@ -29,7 +30,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: 360,
+        width: double.infinity,
         height: 800,
         padding: const EdgeInsets.only(
           top: 100, // 조절 가능한 값
@@ -53,21 +54,27 @@ class Login extends StatelessWidget {
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
-              "assets/images/TABO.png", // 이미지 파일 경로
-              width: 100,
-              height: 200,
+            Container(
+              margin: const EdgeInsets.only(bottom: 150),
+              child: Image.asset(
+                "assets/images/TABO.png", // 이미지 파일 경로
+                width: 300,
+                height: 200,
+              ),
             ),
-            SizedBox(
-              width: 282,
-              height: 54,
+            Container(
               child: Stack(
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       fixedSize: const Size(282, 54),
                       backgroundColor: const Color.fromARGB(255, 255, 230, 0),
@@ -103,7 +110,12 @@ class Login extends StatelessWidget {
               child: Stack(
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       fixedSize: const Size(282, 54),
                       backgroundColor: const Color.fromARGB(255, 255, 255, 255),

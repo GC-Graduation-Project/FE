@@ -56,6 +56,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "ffi",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/ffi-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "file_picker",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/file_picker-6.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "file_selector_linux",
       "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/file_selector_linux-0.9.2+1",
       "packageUri": "lib/",
@@ -278,13 +290,19 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "win32",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/win32-5.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
       "name": "frontend",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2023-12-17T05:28:07.612369Z",
+  "generated": "2023-12-17T07:29:36.916594Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }

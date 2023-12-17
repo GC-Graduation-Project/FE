@@ -1,17 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'result.dart';
 
 void main() {
   runApp(const AudioRecognitionScreen());
 }
 
-class AudioRecognitionScreen extends StatelessWidget {
-  const AudioRecognitionScreen({super.key});
+class AudioRecognitionScreen extends StatefulWidget {
+  const AudioRecognitionScreen({Key? key}) : super(key: key);
+
+  @override
+  _AudioRecognitionScreenState createState() => _AudioRecognitionScreenState();
+}
+
+class _AudioRecognitionScreenState extends State<AudioRecognitionScreen> {
+  String? filePath;
+  Future<String?> pickAudioFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['mp3', 'wav'],
+    );
+
+    if (result != null) {
+      PlatformFile file = result.files.first;
+      return file.path;
+    }
+
+    return null;
+  }
+
+  Future<void> uploadAndRequestServer(String filePath) async {
+    var dio = Dio();
+    dio.options.contentType = 'multipart/form-data';
+    var formData =
+        FormData.fromMap({'file': await MultipartFile.fromFile(filePath)});
+    var response =
+        await dio.post('http://localhost:8000/source/source', data: formData);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResultScreen(imageUrl: response.data),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -54,7 +93,8 @@ class AudioRecognitionScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 30, bottom: 30),
+                  margin: EdgeInsets.only(
+                      top: screenHeight * 0.03, bottom: screenHeight * 0.05),
                   width: screenWidth * 0.9,
                   height: screenHeight * 0.55,
                   decoration: BoxDecoration(
@@ -76,7 +116,9 @@ class AudioRecognitionScreen extends StatelessWidget {
                         ),
                       ),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          filePath = await pickAudioFile();
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           padding: const EdgeInsets.all(10),
@@ -173,14 +215,10 @@ class AudioRecognitionScreen extends StatelessWidget {
                     ),
                   ),
                   child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ResultScreen(
-                                  imageUrl: "",
-                                )),
-                      );
+                    onPressed: () async {
+                      if (filePath != null) {
+                        await uploadAndRequestServer(filePath!);
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,

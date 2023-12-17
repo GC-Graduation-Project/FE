@@ -76,7 +76,8 @@ class _CameraRecognitionScreenState extends State<CameraRecognitionScreen> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 30, bottom: 30),
+                  margin: EdgeInsets.only(
+                      top: screenHeight * 0.03, bottom: screenHeight * 0.05),
                   width: screenWidth * 0.9,
                   height: screenHeight * 0.55,
                   decoration: BoxDecoration(

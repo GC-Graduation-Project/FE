@@ -161,14 +161,14 @@ class ResultScreen extends StatelessWidget {
         if (result != null && result.isNotEmpty) {
           // 이미지 저장 완료 메시지
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            const SnackBar(
               content: Text('Image saved to gallery successfully!'),
             ),
           );
         } else {
           // 이미지 저장 실패 메시지
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            const SnackBar(
               content: Text('Failed to save image to gallery!'),
             ),
           );
@@ -179,7 +179,7 @@ class ResultScreen extends StatelessWidget {
     } else {
       // 이미지가 없는 경우
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Please download an image first!'),
         ),
       );

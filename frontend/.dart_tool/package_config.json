@@ -122,6 +122,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "image_gallery_saver",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/image_gallery_saver-2.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "image_picker",
       "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/image_picker-0.8.9",
       "packageUri": "lib/",
@@ -278,7 +284,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2023-12-17T05:25:12.731861Z",
+  "generated": "2023-12-17T05:28:07.612369Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }

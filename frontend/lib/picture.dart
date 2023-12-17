@@ -32,7 +32,8 @@ class _SheetRecognitionScreenState extends State<SheetRecognitionScreen> {
   Future<void> uploadImage(File imageFile) async {
     // Replace the URL with your server endpoint
     //final url = Uri.parse('http://localhost:8000/image/image');
-    final url = Uri.parse('http://192.168.45.76:8000/tab/test');
+    //final url = Uri.parse('http://192.168.45.76:8000/tab/test');
+    final url = Uri.parse('http://172.21.224.1:8000/tab/test');
 
     var request = http.MultipartRequest('POST', url);
     request.files
@@ -99,7 +100,8 @@ class _SheetRecognitionScreenState extends State<SheetRecognitionScreen> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 30, bottom: 30),
+                  margin: EdgeInsets.only(
+                      top: screenHeight * 0.03, bottom: screenHeight * 0.05),
                   width: screenWidth * 0.9,
                   height: screenHeight * 0.55,
                   decoration: BoxDecoration(

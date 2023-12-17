@@ -116,6 +116,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "image_gallery_saver",
+      "rootUri": "file:///C:/Users/eunse/AppData/Local/Pub/Cache/hosted/pub.dev/image_gallery_saver-2.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "image_picker",
       "rootUri": "file:///C:/Users/eunse/AppData/Local/Pub/Cache/hosted/pub.dev/image_picker-0.8.9",
       "packageUri": "lib/",
@@ -272,7 +278,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2023-12-16T17:26:54.082543Z",
+  "generated": "2023-12-17T01:43:15.375224Z",
   "generator": "pub",
-  "generatorVersion": "3.2.2"
+  "generatorVersion": "3.2.3"
 }

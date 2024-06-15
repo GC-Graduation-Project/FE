@@ -105,7 +105,7 @@ class MainScreen extends StatelessWidget {
                   height: 60,
                   child: Center(
                     child: Text(
-                      '000 님께서',
+                      '푸바오 님께서',
                       style: TextStyle(
                         color: Color(0xFF3B3A3A),
                         fontSize: 30,

@@ -3,7 +3,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
 import 'result.dart';
-import 'dart:io';
 
 void main() {
   runApp(const AudioRecognitionScreen());
@@ -18,6 +17,8 @@ class AudioRecognitionScreen extends StatefulWidget {
 
 class _AudioRecognitionScreenState extends State<AudioRecognitionScreen> {
   String? filePath;
+  String? fileName;
+
   Future<void> pickAudioFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -27,6 +28,8 @@ class _AudioRecognitionScreenState extends State<AudioRecognitionScreen> {
     if (result != null) {
       //PlatformFile file = result.files.first;
       filePath = result.files.single.path;
+      fileName = result.files.single.name;
+      setState(() {});
     }
   }
 
@@ -101,6 +104,30 @@ class _AudioRecognitionScreenState extends State<AudioRecognitionScreen> {
                         .withOpacity(0.5),
                     borderRadius: BorderRadius.circular(50.0),
                   ),
+                  child: filePath != null
+                      ? Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/images/music.png',
+                              width: screenWidth * 0.45,
+                              fit: BoxFit.contain,
+                            ),
+                            Positioned(
+                              bottom: 70,
+                              child: Text(
+                                fileName ?? 'No file selected',
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Righteous',
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      : const SizedBox(),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

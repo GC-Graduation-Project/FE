@@ -3,6 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
 import 'result.dart';
+import 'dart:io';
 
 void main() {
   runApp(const AudioRecognitionScreen());
@@ -17,18 +18,16 @@ class AudioRecognitionScreen extends StatefulWidget {
 
 class _AudioRecognitionScreenState extends State<AudioRecognitionScreen> {
   String? filePath;
-  Future<String?> pickAudioFile() async {
+  Future<void> pickAudioFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['mp3', 'wav'],
     );
 
     if (result != null) {
-      PlatformFile file = result.files.first;
-      return file.path;
+      //PlatformFile file = result.files.first;
+      filePath = result.files.single.path;
     }
-
-    return null;
   }
 
   Future<void> uploadAndRequestServer(String filePath) async {
@@ -117,7 +116,7 @@ class _AudioRecognitionScreenState extends State<AudioRecognitionScreen> {
                       ),
                       child: ElevatedButton(
                         onPressed: () async {
-                          filePath = await pickAudioFile();
+                          pickAudioFile();
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
@@ -127,7 +126,7 @@ class _AudioRecognitionScreenState extends State<AudioRecognitionScreen> {
                           ),
                         ),
                         child: const Text(
-                          'guitar',
+                          'Guitar',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Color(0xFFC6AFFF),
@@ -161,7 +160,7 @@ class _AudioRecognitionScreenState extends State<AudioRecognitionScreen> {
                           ),
                         ),
                         child: const Text(
-                          'bass',
+                          'Bass',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Color(0xFFC6AFFF),
@@ -191,7 +190,7 @@ class _AudioRecognitionScreenState extends State<AudioRecognitionScreen> {
                           ),
                         ),
                         child: const Text(
-                          'ukulele',
+                          'Ukulele',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Color(0xFFC6AFFF),

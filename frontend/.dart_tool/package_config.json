@@ -95,7 +95,7 @@
       "name": "flutter",
       "rootUri": "file:///Users/hanseul/sdk/flutter/packages/flutter",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "3.3"
     },
     {
       "name": "flutter_lints",
@@ -113,7 +113,7 @@
       "name": "flutter_test",
       "rootUri": "file:///Users/hanseul/sdk/flutter/packages/flutter_test",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "3.3"
     },
     {
       "name": "flutter_web_plugins",
@@ -188,6 +188,24 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "leak_tracker",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/leak_tracker-10.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "leak_tracker_flutter_testing",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/leak_tracker_flutter_testing-3.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "leak_tracker_testing",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/leak_tracker_testing-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/lints-2.1.1",
       "packageUri": "lib/",
@@ -195,19 +213,19 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/matcher-0.12.16",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/matcher-0.12.16+1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/material_color_utilities-0.5.0",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/material_color_utilities-0.8.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "meta",
-      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/meta-1.10.0",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/meta-1.12.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -219,9 +237,9 @@
     },
     {
       "name": "path",
-      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/path-1.8.3",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/path-1.9.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     },
     {
       "name": "plugin_platform_interface",
@@ -267,7 +285,7 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/test_api-0.6.1",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/test_api-0.7.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -282,6 +300,12 @@
       "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/vector_math-2.1.4",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "vm_service",
+      "rootUri": "file:///Users/hanseul/.pub-cache/hosted/pub.dev/vm_service-14.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
     },
     {
       "name": "web",
@@ -302,7 +326,10 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2023-12-17T07:29:36.916594Z",
+  "generated": "2024-06-15T13:31:11.375643Z",
   "generator": "pub",
-  "generatorVersion": "3.2.3"
+  "generatorVersion": "3.4.3",
+  "flutterRoot": "file:///Users/hanseul/sdk/flutter",
+  "flutterVersion": "3.22.2",
+  "pubCache": "file:///Users/hanseul/.pub-cache"
 }
